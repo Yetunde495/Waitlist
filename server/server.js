@@ -7,16 +7,18 @@ app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.post("/", (req, res) => {
-  const { email, firstName, lastName } = req.body;
-  console.log(`your email is ${email}`);
 
-  users.push({
-    email: email,
-    firstName: firstName,
-    lastName: lastName,
+app.post("/", (req, res) => {
+    const { email, firstName, lastName } = req.body;
+    console.log(`your email is ${email}`);
+  
+    users.push({
+      email: email,
+      firstName: firstName,
+      lastName: lastName,
+    });  
   });
-});
+
 app.get("/users", (req, res) => {
   res.json(users);
 });

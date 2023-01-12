@@ -19,20 +19,33 @@ function App() {
   };
 
   //function to post user input to backend
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     try {
-      const add = await fetch("http://localhost:8000/", {
+       await fetch("http://localhost:8000/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(userData),
-      });
-    } catch (err) {
-      console.error();
+      })
+    } catch (error) {
+      console.error(error);
     }
   };
+
+  //dunction
+  async function getUsers() {
+    try {
+      fetch("http://localhost:8000/users")
+      .then((res) => res.json())
+      .then((data) => {
+        setSubscribedUsers(data);
+        // console.log(subscribedUsers);
+      });
+    } catch(err) {
+      console.error(err)
+    }
+  }
 
   //fetching the saved data from the backend
   useEffect(() => {
@@ -47,11 +60,15 @@ function App() {
   return (
     <div className="App">
       <div className="wbtn-div">
-        <button onClick={() => setModal(true)}>Join our Waitlist</button>
+        <button onClick={() => {
+          setModal(true)
+          
+          }}>Join our Waitlist</button>
       </div>
       {modal && (
         <DisplayModal
           onclose={() => {
+            getUsers()
             setModal(false);
             setSubscribed(false);
           }}
@@ -62,9 +79,9 @@ function App() {
             </p>
 
             {subscribed === true ? (
-              <p>Congratulations! You have been subscribed to our list</p>
+              <p>Congratulations! You have  subscribed to our list</p>
             ) : (
-              <form onSubmit={handleSubmit} className="form">
+              <form  className="form">
                 <Row>
                   <Col xs={6}>
                     <input
@@ -94,7 +111,12 @@ function App() {
                   }}
                 />
 
-                <button type="submit" className="subscribe-btn">
+                <button type="submit" className="subscribe-btn" onClick={(e) => {
+                  e.preventDefault()
+                handleSubmit()
+                 getUsers()
+                 setSubscribed(true)
+                }}>
                   Subscribe
                 </button>
               </form>
