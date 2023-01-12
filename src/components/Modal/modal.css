@@ -1,0 +1,17 @@
+.modal-content {
+  background-color: #fe805c !important;
+  color: #fff;
+  border-radius: 20px;
+}
+.btn-close {
+  color: #fff !important;
+  background: transparent url("../../assets/images/close-icon.png") center/1em
+    auto no-repeat !important;
+}
+.modal-header {
+  border-bottom: none !important;
+}
+.m-header {
+  font-weight: 600;
+  font-size: 18px;
+}

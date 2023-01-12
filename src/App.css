@@ -1,38 +1,68 @@
+body {
+  font-family: "Montserrat", sans-serif;
+}
 .App {
-  text-align: center;
+  padding: 2% 0;
+}
+.wbtn-div {
+  border-bottom: 3px solid #d9d9d9;
+  padding: 1% 4%;
+}
+.wbtn-div button {
+  background-color: #fe805c;
+  color: #fff;
+  width: 168px;
+  height: 42px;
+  border: 1px solid #fe805c;
+  border-radius: 24px;
+  cursor: pointer;
+}
+.container {
+  padding: 3% 4%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+p {
+  margin-bottom: 0;
+  margin-top: 0;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input {
+  width: 210px;
+  height: 40px;
+  padding: 0.5rem 1rem;
+  border-radius: 91px;
+  border: transparent;
+  margin-bottom: 1rem;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+input:focus-visible {
+  border-color: transparent;
+  outline-width: 0;
 }
-
-.App-link {
-  color: #61dafb;
+::placeholder {
+  color: #afafbd;
+  font-size: 14px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.subscribe-input {
+  width: 450px;
+  background-color: #fff;
+}
+.subscribe-btn {
+  background-color: #fff;
+  border: transparent;
+  padding: 2px 15px;
+  position: absolute;
+  right: 55px;
+  border-left: 0.5px solid #afafbd;
+  bottom: 37px;
+}
+.subscribe-btn:hover {
+  background-color: rgb(228, 225, 222);
+}
+.text {
+  position: absolute;
+  top: -16px;
+  color: rgba(255, 255, 255, 0.808);
+  font-size: 15px;
+}
+.form {
+  margin-top: 1rem;
 }
